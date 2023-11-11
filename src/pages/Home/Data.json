@@ -1,0 +1,61 @@
+[
+    {
+      "_id":1,
+      "title": "1 Room in 2 BED APARTMENT",
+      "type": "PRIVATE",
+      "gender": "M",
+      "price": "500",
+      "duration": "M",
+      "currency": "$",
+      "isWishlisted": false,
+      "address": "Some good address",
+      "updatedAt": {
+        "value": 2,
+        "unit": "Days"
+      },
+      "distanceFromRef": {
+        "value": 2.2,
+        "unit": "K.M"
+      },
+      "images": {
+        "main": 0,
+        "list": [
+          "https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg",
+          "https://drive.google.com/uc?export=download&id=1MxH3n7TD5hbah1o3TnL86fbsI8_b8IQB",
+          "https://drive.google.com/uc?export=download&id=1MXCPKCSyUIPuhkAx0Hj7jh97WN2CZRW0",
+          "https://drive.google.com/uc?export=download&id=1l5Y2eZETdcuGoTTjA9NDqLpypTheR8Fl",
+          "https://drive.google.com/uc?export=download&id=1AFEFosCz_eFoXNJngPembKdugtgnPxQB"
+        ]
+      }
+    },
+    {
+      "_id":2,
+      "title": "1 Room in 2 BED APARTMENT",
+      "type": "PRIVATE",
+      "gender": "M/F",
+      "price": "500",
+      "duration": "M",
+      "currency": "$",
+      "isWishlisted": true,
+      "address": "Some good address",
+      "updatedAt": {
+        "value": 2,
+        "unit": "Days"
+      },
+      "distanceFromRef": {
+        "value": 2.2,
+        "unit": "K.M"
+      },
+      "images": {
+        "main": 1,
+        "list": [
+          "https://drive.google.com/uc?export=download&id=1MSNJoga6tgdPcfOZuabUdiJUHs4FWiI0",
+          "https://drive.google.com/uc?export=download&id=16NX9clg7jL3bTOHDuTDJWM8v0xSEpFjk",
+          "https://drive.google.com/uc?export=download&id=1MOdVj7EGnwrPOB6A-XNdPpo9Px5TfucT",
+          "https://drive.google.com/uc?export=download&id=1MKt9tvaS6TsTbDLAG6Gt-iODRUffoz3V",
+          "https://drive.google.com/uc?export=download&id=1MAwoJhq_ou1Nba0Bd5li3tAG1Ztpn6Ti"
+        ]
+      }
+    }
+  ]
+  
