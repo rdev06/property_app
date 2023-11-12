@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { View, StyleSheet, Dimensions, Image } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { View, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
 import { Text, Divider, useTheme, IconButton } from 'react-native-paper';
 import Swiper from 'react-native-web-swiper';
 
