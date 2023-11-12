@@ -10,7 +10,6 @@ import { AmmenityContext } from '../store';
 export default function PropertyList({ navigation }) {
 
   const [ammenity, setAmmenity] = useContext(AmmenityContext);
-  // const [] = useState(ammenity);
 
   return (
     <>

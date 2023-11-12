@@ -1,26 +1,21 @@
-import { useState } from 'react';
 import { Chip as ChipF } from 'react-native-paper';
 
 export default function Chip(props) {
-  const [isSelected, setIsSeclected] = useState(props.selected);
   return (
     <ChipF
       // key={props.key}
       style={props.style || {}}
-      icon={props.icon || (!isSelected && 'plus')}
-      selectedColor={isSelected ? 'green' : 'purple'}
+      icon={props.icon || (!props.selected && 'plus')}
+      selectedColor={props.selected ? 'green' : 'purple'}
       onPress={() => 
         props.setValue(pre => {
-          setIsSeclected(true);
           pre[props.index].selected = true;
           return [...pre]
         })
       }
       onClose={
-        isSelected &&
+        props.selected &&
         (() => {
-          setIsSeclected(false);
-          
           props.setValue(pre => {
             pre[props.index].selected = false;
             return [...pre]
