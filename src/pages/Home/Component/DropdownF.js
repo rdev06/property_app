@@ -2,13 +2,13 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import { View, Text } from 'react-native';
 import { useState } from 'react';
 
-export default function DropDownF({ label, items, value, setValue, style }) {
+export default function DropDownF({ label='', items, value, setValue, style , width=100}) {
   const [open, setOpen] = useState(false);
   
   return (
     <View style={style}>
       <Text style={{ fontWeight: 'bold', width: 80 }}>{label}</Text>
-      <View style={{ width: 100 }} >
+      <View style={{ width }} >
         <DropDownPicker
           open={open}
           value={value}
@@ -17,7 +17,6 @@ export default function DropDownF({ label, items, value, setValue, style }) {
           setValue={setValue}
           showTickIcon={true}
           dropDownDirection="BOTTOM"
-        
         />
       </View>
     </View>
