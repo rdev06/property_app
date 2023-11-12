@@ -32,7 +32,7 @@ function DrawerStack() {
 export default function RootNav() {
   return (
     <Stack.Navigator
-    initialRouteName='Root'
+    initialRouteName='OverLap'
     >
       <Stack.Screen name='Root' component={DrawerStack} options={{ headerShown: false }} />
       <Stack.Screen name='OverLap' component={OverLap} options={{ headerShown: false }} />

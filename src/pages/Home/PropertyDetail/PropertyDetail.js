@@ -7,8 +7,8 @@ import Swiper from 'react-native-web-swiper';
 const { width, height } = Dimensions.get('window');
 
 export default function PropertyDetail(props) {
-    const theme = useTheme();
-    const navigation = useNavigation();
+  const theme = useTheme();
+  const navigation = useNavigation();
   props = {
     _id: 1,
     title: '1 Room in 2 BED APARTMENT',
@@ -41,7 +41,7 @@ export default function PropertyDetail(props) {
   const pricePerDuration = props.currency + props.price + '/' + props.duration;
   const [isWishlisted, setIsWishlisted] = useState(props.isWishlisted);
   return (
-    <ScrollView style={styles.scrollContainer}>
+    <View style={styles.scrollContainer}>
       <View style={styles.container}>
         <Swiper
           from={props.images.main}
@@ -66,20 +66,20 @@ export default function PropertyDetail(props) {
           ))}
         </Swiper>
       </View>
-      <Divider bold style={{backgroundColor: theme.colors.secondary, margin: 2}} />
-      <View style={{flex: 1}}>
-        <Text variant="headlineLarge" >{props.title}</Text>
+      <Divider bold style={styles.divider(theme)} />
+      <View style={styles.container}>
+        <Text variant='headlineLarge'>{props.title}</Text>
         <Text>{props.address}</Text>
         <Text>{props.type}</Text>
-          <Text>{props.gender}</Text>
-          <Text>{pricePerDuration}</Text>
-          <IconButton
-            icon={isWishlisted ? 'heart' : 'heart-outline'}
-            iconColor={theme.colors.primary}
-            size={25}
-            onPress={() => setIsWishlisted((pre) => !pre)}
-          />
-          <View style={styles.overview}>
+        <Text>{props.gender}</Text>
+        <Text>{pricePerDuration}</Text>
+        <IconButton
+          icon={isWishlisted ? 'heart' : 'heart-outline'}
+          iconColor={theme.colors.primary}
+          size={25}
+          onPress={() => setIsWishlisted((pre) => !pre)}
+        />
+        <View style={styles.overview}>
           <Text>2.2 KM</Text>
         </View>
         <View style={styles.overview}>
@@ -94,16 +94,14 @@ export default function PropertyDetail(props) {
           />
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    // flex: 1,
-    // flexDirection: 'row',
-    borderWidth: 5,
-    borderColor: 'red'
+    flex: 1,
+    flexDirection: width >= 768 ? 'row' : 'column'
   },
   container: {
     flex: 1,
@@ -122,5 +120,13 @@ const styles = StyleSheet.create({
   overview: {
     flexDirection: 'row',
     justifyContent: 'space-between'
-  }
+  },
+  divider: (theme) => ({
+    backgroundColor: theme.colors.secondary,
+    ...(width >= 768
+      ? { width: 1, height: '100%', marginHorizontal: 5 }
+      : {
+          marginVertical: 5
+        })
+  })
 });
