@@ -4,20 +4,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import RootNav from './src/RootNav';
 
-const colors = {
-  primary: 'purple',
-  secondary: 'brown',
-  tertiary: 'grey'
-}
+[MD3LightTheme, MD3DarkTheme].forEach(e => {
+  e.colors.primary = 'purple';
+  e.colors.secondary = 'brown';
+  e.colors.tertiary = 'grey';
+})
+
 
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
   reactNavigationLight: MD3LightTheme,
   reactNavigationDark: MD3DarkTheme,
  })
 
- const useLightTheme = {...MD3LightTheme, ...LightTheme, ...{colors}};
- const useDarkTheme = {...MD3DarkTheme, ...DarkTheme, ...{colors}};
-
+ const useLightTheme = {...MD3LightTheme, ...LightTheme};
+ const useDarkTheme = {...MD3DarkTheme, ...DarkTheme};
 
 export default function App() {
   return (
