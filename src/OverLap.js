@@ -1,6 +1,6 @@
 import { Appbar } from 'react-native-paper';
-import { View, Dimensions, ScrollView } from 'react-native';
-import PropertyDetail from './pages/Home/PropertyDetail/PropertyDetail';
+import { View, Dimensions } from 'react-native';
+import PropertyDetail from './pages/Home/Marketplace/PropertyDetail/PropertyDetail';
 
 const { width, height } = Dimensions.get('window');
 

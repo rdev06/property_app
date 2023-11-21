@@ -3,7 +3,7 @@ import { FlatGrid } from 'react-native-super-grid';
 import Data from '../Data.json';
 import PropertyItem from '../Component/PropertyItem';
 import { View, ScrollView, StyleSheet } from 'react-native';
-import Chip from '../Component/Chip';
+import Chip from '../../Component/Chip';
 import { IconButton } from 'react-native-paper';
 import { AmmenityContext } from '../store';
 

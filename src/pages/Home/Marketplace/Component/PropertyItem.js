@@ -52,7 +52,7 @@ export default function PropertyItem({ item, navigation }) {
                 key={i}
                 style={styles.image}
                 source={{ uri: link }}
-                defaultSource={require('../../../../assets/loader.gif')}
+                defaultSource={require('../../../../../assets/loader.gif')}
               />
             ))}
           </Swiper>

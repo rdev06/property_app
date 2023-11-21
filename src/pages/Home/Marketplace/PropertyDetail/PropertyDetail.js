@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { View, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
+import { View, StyleSheet, Dimensions, Image } from 'react-native';
 import { Text, Divider, useTheme, IconButton } from 'react-native-paper';
 import Swiper from 'react-native-web-swiper';
 
@@ -61,7 +61,7 @@ export default function PropertyDetail(props) {
               key={i}
               style={styles.image}
               source={{ uri: link }}
-              defaultSource={require('../../../../assets/loader.gif')}
+              defaultSource={require('../../../../../assets/loader.gif')}
             />
           ))}
         </Swiper>
