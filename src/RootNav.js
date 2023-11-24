@@ -6,9 +6,6 @@ import Chat from './pages/Chat/Chat';
 import Notification from './pages/Notification/Notification';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OverLap from './OverLap';
-import { HomeHeader } from './pages/Home/Component/HomeHeader';
-import { CategoryHome } from './pages/Home/HomeConstant';
-import { useState } from 'react';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -18,7 +15,6 @@ const Drawer = createDrawerNavigator();
 function DrawerStack() {
   const dimensions = useWindowDimensions();
   const isLargeScreen = dimensions.width >= 768;
-  const [homeType, setHomeType] = useState(CategoryHome.Marketplace);
   return (
     <Drawer.Navigator
       initialRouteName='Home'
@@ -27,7 +23,7 @@ function DrawerStack() {
         drawerStyle: isLargeScreen && { width: '10%' }
       }}
     >
-      <Drawer.Screen name='Home' component={Home(homeType)} options={{headerTitle: HomeHeader(homeType, setHomeType), headerTitleAlign: 'center'}} />
+      <Drawer.Screen name='Home' component={Home} options={{headerShown: false}} />
       <Drawer.Screen name='Profile' component={Profile} />
       <Drawer.Screen name='Chat' component={Chat} />
       <Drawer.Screen name='Notification' component={Notification} />
