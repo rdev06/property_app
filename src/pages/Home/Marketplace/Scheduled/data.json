@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "from": "09:00",
+    "to": "10:00",
+    "agenda": "Cross street 64, Near Pine Tower",
+    "summary": "As discused you will show me room available to rent out including bathroom, kitchen and hall",
+    "accepted": false
+  },
+  {
+    "id": 2,
+    "from": "10:20",
+    "to": "11:00",
+    "agenda": "Another location",
+    "summary": "This is another room available to rent out",
+    "accepted": false
+  },
+  {
+    "id": 3,
+    "from": "11:30",
+    "to": "12:00",
+    "agenda": "Yet another location",
+    "summary": "And another room available to rent out",
+    "accepted": true
+  },
+  {
+    "id": 4,
+    "from": "11:00",
+    "to": "12:00",
+    "agenda": "Again another location",
+    "summary": "And another room available to rent out",
+    "accepted": true
+  }
+]
