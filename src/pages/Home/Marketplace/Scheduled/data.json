@@ -1,6 +1,8 @@
 [
   {
     "id": 1,
+    "name":"Roshan Dev",
+    "contact":"+971527622932",
     "from": "09:00",
     "to": "10:00",
     "agenda": "Cross street 64, Near Pine Tower",
@@ -9,6 +11,8 @@
   },
   {
     "id": 2,
+    "name":"Rohan Dev",
+    "contact":"+17827787858",
     "from": "10:20",
     "to": "11:00",
     "agenda": "Another location",
@@ -17,6 +21,8 @@
   },
   {
     "id": 3,
+    "name":"Rahul Dev",
+    "contact":"rdev.dev01@gmail.com",
     "from": "11:30",
     "to": "12:00",
     "agenda": "Yet another location",
@@ -25,6 +31,8 @@
   },
   {
     "id": 4,
+    "name":"Shubadeep Pahari",
+    "contact":null,
     "from": "11:00",
     "to": "12:00",
     "agenda": "Again another location",

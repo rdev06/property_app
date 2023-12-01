@@ -13,15 +13,19 @@ export default function Event({ item, setEvents }) {
     }
   return (
     <View style={styles.container}>
+        <View>
       <Text variant='titleSmall'>
         {item.from}-{item.to}
       </Text>
+      <Divider style={{ width: '100%' }} />
+      <Text style={{fontWeight: 'bold'}} >{item.name}</Text>
+        </View>
       <Divider style={styles.divider} />
       <View style={{flex: 1}}>
         <Text variant='titleSmall'>{item.agenda}</Text>
         <Divider style={{ width: '100%' }} />
-
-        <Text>{item.summary}</Text>
+        {item.contact && <Text style={{fontWeight: 'bold'}} >{item.contact}</Text>}
+        <Text >{item.summary}</Text>
 
         {!item.accepted && (
           <View style={{ flex: 1, flexDirection: 'row' }}>

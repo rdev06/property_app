@@ -6,7 +6,7 @@ import { CategoryHome } from './HomeConstant';
 import { HomeHeader } from './Component/HomeHeader';
 
 export default function Home({navigation}) {
-  const [homeType, setHomeType] = useState(CategoryHome.Marketplace);
+  const [homeType, setHomeType] = useState(CategoryHome.Landlord);
     return (
       <>
       <HomeHeader navigation={navigation} homeType={homeType} setHomeType={setHomeType} />

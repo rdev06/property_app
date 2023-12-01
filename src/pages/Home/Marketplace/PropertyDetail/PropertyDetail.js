@@ -93,6 +93,13 @@ export default function PropertyDetail(props) {
             onPress={() => navigation.navigate('Chat')}
           />
         </View>
+        <IconButton
+            icon='clock'
+            size={25}
+            iconColor={theme.colors.primary}
+            onPress={() => navigation.navigate('Chat')}
+          />
+        <Text>Visit Schedule</Text>
       </View>
     </View>
   );
