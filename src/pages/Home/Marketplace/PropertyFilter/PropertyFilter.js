@@ -5,7 +5,7 @@ import DropDownF from '../../Component/DropdownF';
 import Slider from '@react-native-community/slider';
 import { FlatGrid } from 'react-native-super-grid';
 import Chip from '../../Component/Chip';
-import { AmmenityContext } from '../store';
+import { AmmenityContext } from '../Marketplace.store';
 
 
 

@@ -1,7 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { Text, TextInput, Button, Snackbar } from 'react-native-paper';
-import { DatePickerInput, TimePickerModal } from 'react-native-paper-dates';
+import { enGB, registerTranslation, DatePickerInput, TimePickerModal } from 'react-native-paper-dates';
+import { HomeContext } from '../home.store';
+import Data from '../Marketplace/Data.json';
+import { useFocusEffect } from '@react-navigation/native';
+
+registerTranslation('en-GB', enGB);
 
 const today = new Date();
 const [H, M] = today.toLocaleTimeString().split(':');
@@ -40,7 +45,9 @@ function TimePickerInput({ label, time, setTime }) {
   );
 }
 
-export default function DoSchedule(props) {
+export default function DoSchedule({route}) {
+  const owner = Data.find(e => e._id === route.params._id).owner;
+  const user = {};
   // props = {
   //   owner: {
   //     name: 'Roshan Dev'
@@ -49,9 +56,9 @@ export default function DoSchedule(props) {
   const [inputDate, setInputDate] = useState(today);
   const [fromTime, setFromTime] = useState(H + ':' + M);
   const [toTime, setToTime] = useState(fromTime);
-  const [name, setName] = useState(props.name || '');
-  const [mobile, setMobile] = useState(props.mobile || '');
-  const [email, setEmail] = useState(props.email || '');
+  const [name, setName] = useState(user.name || '');
+  const [mobile, setMobile] = useState(user.mobile || '');
+  const [email, setEmail] = useState(user.email || '');
   const [message, setMessage] = useState();
 
   const [visible, setVisible] = useState(false);
@@ -62,17 +69,26 @@ export default function DoSchedule(props) {
 
   useEffect(() => setToTime(fromTime), [fromTime]);
 
+
+
+  const [rootHeaderShown, setRootHeaderShown] = useContext(HomeContext);
+
+  useFocusEffect(() => setRootHeaderShown(false));
+
+
+
+
   return (
     <>
       <Text
         variant='headlineMedium'
         style={{ marginBottom: 20, alignSelf: 'center' }}
       >
-        Schedule Your Appointment With: {props.owner.name}
+        Schedule Your Appointment With: {owner.name}
       </Text>
-      <View style={{ alignSelf: 'center' }}>
+      <ScrollView style={{ alignSelf: 'center' }}>
         <DatePickerInput
-          locale='en'
+          locale='en-GB'
           label='Appointment'
           value={inputDate}
           onChange={(d) => setInputDate(d)}
@@ -129,7 +145,7 @@ export default function DoSchedule(props) {
         >
         Your Request Submited
       </Snackbar>
-      </View>
+      </ScrollView>
     </>
   );
 }

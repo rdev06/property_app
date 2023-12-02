@@ -5,7 +5,7 @@ import PropertyItem from '../Component/PropertyItem';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import Chip from '../../Component/Chip';
 import { IconButton } from 'react-native-paper';
-import { AmmenityContext } from '../store';
+import { AmmenityContext } from '../Marketplace.store';
 
 export default function PropertyList({ navigation }) {
 

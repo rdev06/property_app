@@ -1,52 +1,29 @@
-import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
-import { View, StyleSheet, Dimensions, Image } from 'react-native';
-import { Text, Divider, useTheme, IconButton } from 'react-native-paper';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useContext, useState } from 'react';
+import Data from '../Data.json';
+import { View, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
+import { Text, Divider, useTheme, IconButton, Button } from 'react-native-paper';
 import Swiper from 'react-native-web-swiper';
+import { HomeContext } from '../../home.store';
 
 const { width, height } = Dimensions.get('window');
 
-export default function PropertyDetail(props) {
+export default function PropertyDetail({route}) {
   const theme = useTheme();
   const navigation = useNavigation();
-  props = {
-    _id: 1,
-    title: '1 Room in 2 BED APARTMENT',
-    type: 'PRIVATE',
-    gender: 'M',
-    price: '500',
-    duration: 'M',
-    currency: '$',
-    isWishlisted: false,
-    address: 'Some good address',
-    updatedAt: {
-      value: 2,
-      unit: 'Days'
-    },
-    distanceFromRef: {
-      value: 2.2,
-      unit: 'K.M'
-    },
-    images: {
-      main: 0,
-      list: [
-        'https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_960_720.jpg',
-        'https://drive.google.com/uc?export=download&id=1MxH3n7TD5hbah1o3TnL86fbsI8_b8IQB',
-        'https://drive.google.com/uc?export=download&id=1MXCPKCSyUIPuhkAx0Hj7jh97WN2CZRW0',
-        'https://drive.google.com/uc?export=download&id=1l5Y2eZETdcuGoTTjA9NDqLpypTheR8Fl',
-        'https://drive.google.com/uc?export=download&id=1AFEFosCz_eFoXNJngPembKdugtgnPxQB'
-      ]
-    }
-  };
-  const pricePerDuration = props.currency + props.price + '/' + props.duration;
-  const [isWishlisted, setIsWishlisted] = useState(props.isWishlisted);
+  const item = Data.find(e => e._id === route.params._id || 1)
+  const pricePerDuration = item.currency + item.price + '/' + item.duration;
+  const [isWishlisted, setIsWishlisted] = useState(item.isWishlisted);
+  const [rootHeaderShown, setRootHeaderShown] = useContext(HomeContext);
+
+  useFocusEffect(() => setRootHeaderShown(false));
   return (
     <View style={styles.scrollContainer}>
       <View style={styles.container}>
         <Swiper
-          from={props.images.main}
+          from={item.images.main}
           minDistanceForAction={0.1}
-          controlsProps={{
+          controlsitem={{
             dotsTouchable: true,
             prevPos: 'left',
             nextPos: 'right',
@@ -56,7 +33,7 @@ export default function PropertyDetail(props) {
             prevTitleStyle: styles.paginationDirection
           }}
         >
-          {props.images.list.map((link, i) => (
+          {item.images.list.map((link, i) => (
             <Image
               key={i}
               style={styles.image}
@@ -67,11 +44,11 @@ export default function PropertyDetail(props) {
         </Swiper>
       </View>
       <Divider bold style={styles.divider(theme)} />
-      <View style={styles.container}>
-        <Text variant='headlineLarge'>{props.title}</Text>
-        <Text>{props.address}</Text>
-        <Text>{props.type}</Text>
-        <Text>{props.gender}</Text>
+      <ScrollView style={styles.container}>
+        <Text variant='headlineLarge'>{item.title}</Text>
+        <Text>{item.address}</Text>
+        <Text>{item.type}</Text>
+        <Text>{item.gender}</Text>
         <Text>{pricePerDuration}</Text>
         <IconButton
           icon={isWishlisted ? 'heart' : 'heart-outline'}
@@ -84,7 +61,7 @@ export default function PropertyDetail(props) {
         </View>
         <View style={styles.overview}>
           <Text style={{ fontWeight: 'bold' }}>
-            Updated {props.updatedAt.value + ' ' + props.updatedAt.unit + 'Ago'}
+            Updated {item.updatedAt.value + ' ' + item.updatedAt.unit + 'Ago'}
           </Text>
           <IconButton
             icon='message'
@@ -93,14 +70,12 @@ export default function PropertyDetail(props) {
             onPress={() => navigation.navigate('Chat')}
           />
         </View>
-        <IconButton
-            icon='clock'
-            size={25}
-            iconColor={theme.colors.primary}
-            onPress={() => navigation.navigate('Chat')}
-          />
-        <Text>Visit Schedule</Text>
-      </View>
+        <Button
+          icon='send-clock'
+          iconColor={theme.colors.primary}
+          onPress={() => navigation.navigate('DoSchedule', {_id: item._id})}
+          >Visit Schedule</Button>
+      </ScrollView>
     </View>
   );
 }
