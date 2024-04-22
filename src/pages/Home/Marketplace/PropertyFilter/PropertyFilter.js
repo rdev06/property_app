@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import {ScrollView} from 'react-native-virtualized-view';
+import { View, StyleSheet } from 'react-native';
 import { Switch, Text, Divider, IconButton } from 'react-native-paper';
 import DropDownF from '../../Component/DropdownF';
 import Slider from '@react-native-community/slider';

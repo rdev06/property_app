@@ -1,0 +1,66 @@
+{
+  "property": [
+    {
+      "_id": 1,
+      "name": "Mast Property Group",
+      "location": "Deira, UAE",
+      "units": 10,
+      "teenants": 8,
+      "paid": 6
+    },
+    {
+      "_id": 2,
+      "name": "Mast Property Group 2",
+      "location": "Rashidiya, UAE",
+      "units": 8,
+      "teenants": 8,
+      "paid": 6
+    },
+    {
+      "_id": 3,
+      "name": "Dubai International City",
+      "location": "DIFC, UAE",
+      "units": 25,
+      "teenants": 18,
+      "paid": 16
+    },
+    {
+      "_id": 3,
+      "name": "Global Village",
+      "location": "GV, UAE",
+      "units": 10,
+      "teenants": 8,
+      "paid": 2
+    },
+    {
+      "_id": 4,
+      "name": "Mast Property Group 2",
+      "location": "Deira, UAE",
+      "units": 10,
+      "teenants": 8,
+      "paid": 3
+    },
+    {
+      "_id": 5,
+      "name": "Mast Property Group 3",
+      "location": "Rashidiya, UAE",
+      "units": 8,
+      "teenants": 8,
+      "paid": 6
+    },
+    {
+      "_id": 6,
+      "name": "Dubai International City 1",
+      "location": "DIFC, UAE",
+      "units": 25,
+      "teenants": 18,
+      "paid": 16
+    }
+  ],
+  "unit": [
+    {
+      "type": "BED",
+      "name":"Unit 1"
+    }
+  ]
+}

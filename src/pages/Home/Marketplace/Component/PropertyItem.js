@@ -16,9 +16,7 @@ export default function PropertyItem({ item, navigation }) {
 
   return (
     <Card
-      onPress={() =>
-        navigation.navigate('PropertDetail', { _id: item._id })
-      }
+    onPress={() =>navigation.navigate('PropertDetail', { _id: item._id })}
     >
       <Card.Title title={item.title} />
       <Card.Content>
@@ -33,7 +31,7 @@ export default function PropertyItem({ item, navigation }) {
             onPress={removeFromWHishList}
           />
         </View>
-        <View style={{ flexBasis: 400 }}>
+        <View style={{ height: height / 2 }}>
           <Swiper
             from={item.images.main}
             minDistanceForAction={0.1}
@@ -93,5 +91,5 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24,
     fontWeight: '500'
-  }
+  },
 });

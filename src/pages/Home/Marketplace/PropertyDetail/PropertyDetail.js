@@ -14,7 +14,7 @@ export default function PropertyDetail({route}) {
   const item = Data.find(e => e._id === route.params._id || 1)
   const pricePerDuration = item.currency + item.price + '/' + item.duration;
   const [isWishlisted, setIsWishlisted] = useState(item.isWishlisted);
-  const [rootHeaderShown, setRootHeaderShown] = useContext(HomeContext);
+  const [setRootHeaderShown] = useContext(HomeContext);
 
   useFocusEffect(() => setRootHeaderShown(false));
   return (
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width >= 768 ? 800 : width,
-    height: height / 1.5,
-    flexBasis: height / 1.5
+    height: height / 2,
+    flexBasis: height / 2
   },
   image: { aspectRatio: 1, marginLeft: 5 },
   paginationDirection: {

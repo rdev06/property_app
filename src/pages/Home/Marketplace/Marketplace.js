@@ -12,7 +12,6 @@ import { HomeContext } from '../home.store';
 import DoSchedule from '../Component/DoSchedule';
 import { useFocusEffect } from '@react-navigation/native';
 
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const initialData = [
@@ -24,7 +23,7 @@ const initialData = [
 
 function MarketplaceTab() {
   const [ammenity, setAmmenity] = useState(initialData);
-  const [rootHeaderShown, setRootHeaderShown] = useContext(HomeContext);
+  const [setRootHeaderShown] = useContext(HomeContext);
 
   useFocusEffect(() => setRootHeaderShown(true));
 
@@ -63,6 +62,7 @@ function MarketplaceTab() {
   );
 }
 
+const Stack = createNativeStackNavigator();
 
 export default function Marketplace(){
   return (
@@ -70,8 +70,8 @@ export default function Marketplace(){
     initialRouteName='Root'
     >
       <Stack.Screen name='Root' component={MarketplaceTab} options={{ headerShown: false }} />
-      <Stack.Screen name='PropertDetail' component={PropertyDetail} />
-      <Stack.Screen name='DoSchedule' component={DoSchedule} />
+      <Stack.Screen name='PropertDetail' component={PropertyDetail} options={{title: 'Property Detail'}}/>
+      <Stack.Screen name='DoSchedule' component={DoSchedule} options={{title: 'Schedule'}}/>
     </Stack.Navigator>
   );
 }

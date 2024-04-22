@@ -71,7 +71,7 @@ export default function DoSchedule({route}) {
 
 
 
-  const [rootHeaderShown, setRootHeaderShown] = useContext(HomeContext);
+  const [setRootHeaderShown] = useContext(HomeContext);
 
   useFocusEffect(() => setRootHeaderShown(false));
 

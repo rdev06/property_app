@@ -1,48 +1,36 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Swiper from 'react-native-web-swiper';
+import * as React from 'react';
+import { View, useWindowDimensions, Text } from 'react-native';
+import { TabView, SceneMap } from 'react-native-tab-view';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'orange'
-  },
-  slideContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  slide: {
-    backgroundColor: 'rgba(20,20,200,0.3)'
-  }
+const FirstRoute = () => (
+  <View style={{ flex: 1, backgroundColor: '#ff4081' }} />
+);
+
+const SecondRoute = () => (
+  <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
+);
+
+const renderScene = SceneMap({
+  first: FirstRoute,
+  second: SecondRoute,
 });
 
-const Notification = () => {
-  return (
-    <View style={styles.container}>
-      <Swiper
-        from={1}
-        minDistanceForAction={0.1}
-        controlsProps={{
-          dotsTouchable: true,
-          prevPos: 'left',
-          nextPos: 'right',
-          nextTitle: '>',
-          prevTitle: '<'
-        }}
-      >
-        <View style={[styles.slideContainer, styles.slide]}>
-          <Text>Slide 1</Text>
-        </View>
-        <View style={[styles.slideContainer, styles.slide]}>
-          <Text>Slide 2</Text>
-        </View>
-        <View style={[styles.slideContainer, styles.slide]}>
-          <Text>Slide 3</Text>
-        </View>
-      </Swiper>
-    </View>
-  );
-};
+export default function TabViewExample() {
+  const layout = useWindowDimensions();
 
-export default Notification;
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'first', title: 'Firsts' },
+    { key: 'second', title: 'Second' },
+  ]);
+
+  return (
+    <TabView
+      navigationState={{ index, routes }}
+      renderScene={renderScene}
+      onIndexChange={setIndex}
+      initialLayout={{ width: layout.width }}
+      renderTabBar={() => <Text></Text>}
+    />
+  );
+}

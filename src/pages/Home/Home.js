@@ -10,7 +10,7 @@ export default function Home({navigation}) {
   const [homeType, setHomeType] = useState(CategoryHome.Marketplace);
   const [rootHeaderShown, setRootHeaderShown] = useState(true);
     return (
-      <HomeContext.Provider value={[rootHeaderShown, setRootHeaderShown]}>
+      <HomeContext.Provider value={[setRootHeaderShown, rootHeaderShown]}>
         {rootHeaderShown && <HomeHeader navigation={navigation} homeType={homeType} setHomeType={setHomeType} />}
         {homeType === CategoryHome.Marketplace && <Marketplace />}
         {homeType === CategoryHome.Landlord && <Landlord />}

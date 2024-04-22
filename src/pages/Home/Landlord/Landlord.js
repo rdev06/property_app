@@ -1,15 +1,22 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Property from './Property/Property';
 import Teenant from './Teenant/Teenant';
 import Maintenance from './Maintenance/Maintenance';
 import Enquiry from './Enquiry/Enquiry';
 import { Badge } from 'react-native-paper';
-import { View } from 'react-native-web';
+import Unit from './Unit/Unit';
+import { useContext } from 'react';
+import { HomeContext } from '../home.store';
+import { useFocusEffect } from '@react-navigation/native';
+import PropertyDetail from './PropertyDetail/PropertyDetail';
 
 const Tab = createBottomTabNavigator();
 
-export default function Landlord() {
+function LandlordTab() {
+  const [setRootHeaderShown] = useContext(HomeContext);
+  useFocusEffect(() => setRootHeaderShown(true));
   return (
     <Tab.Navigator
       initialRouteName='Property'
@@ -57,5 +64,22 @@ export default function Landlord() {
       <Tab.Screen name='Maintenance' component={Maintenance} />
       <Tab.Screen name='Enquiry' component={Enquiry} />
     </Tab.Navigator>
+  );
+}
+
+
+
+const Stack = createNativeStackNavigator();
+
+
+export default function LandLord(){
+  return (
+    <Stack.Navigator
+    initialRouteName='Root'
+    >
+      <Stack.Screen name='Root' component={LandlordTab} options={{ headerShown: false }} />
+      <Stack.Screen name='LLPropertyDetail' component={PropertyDetail} options={{title: 'Property Detail'}} />
+      <Stack.Screen name='Unit' component={Unit} />
+    </Stack.Navigator>
   );
 }
